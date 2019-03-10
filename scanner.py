@@ -60,15 +60,22 @@ def scan(text,transitions,accepts):
 			
 	
 # **Σημείο #1**: Αντικαταστήστε με το δικό σας λεξικό μεταβάσεων
-transitions = { 's0': { 'DIGIT':'s1' },
-       			's1': { 'DIGIT':'s1','DOT':'s2' },
-       			's2': { 'DIGIT':'s3' },
-       			's3': { 'DIGIT':'s3' }       
-     		  } 
+transitions = { 'S0': { 'DIG0':'S1','DIG1':'S1','DIG2':'S2','DIG3':'S2' },
+       		'S1': { 'DIG0':'S3','DIG1':'S3','DIG2':'S3','DIG3':'S3','DIG4':'S3','DIG5':'S3','DIG6':'S3','DIG7':'S3','DIG8':'S3','DIG9':'S3' },
+       		'S2': { 'DIG0':'S3','DIG1':'S3','DIG2':'S3','DIG3':'S3','DIG4':'S3','DIG5':'S3' },
+       		'S3': { 'DIG0':'S4' },
+	        'S4': { 'DIG0':'S5','DIG1':'S5','DIG2':'S5','DIG3':'S5','DIG4':'S5','DIG5':'S5','DIG6':'S5','DIG7':'S5','DIG8':'S5','DIG9':'S5' },
+	        'S5': { 'DIG0':'S6','DIG1':'S6','DIG2':'S6','DIG3':'S6','DIG4':'S6','DIG5':'S6','DIG6':'S6','DIG7':'S6','DIG8':'S6','DIG9':'S6' },
+	        'S6': { 'G':'S9','K':'S7','M':'S11' },
+	        'S7': { 'T':'S8'},
+	        'S9': { 'DIG0':'S10','DIG1':'S10','DIG2':'S10','DIG3':'S10','DIG4':'S10','DIG5':'S10','DIG6':'S10','DIG7':'S10','DIG8':'S10','DIG9':'S10' },
+	        'S10': { 'DIG0':'S6','DIG1':'S6','DIG2':'S6','DIG3':'S6','DIG4':'S6','DIG5':'S6','DIG6':'S6','DIG7':'S6','DIG8':'S6','DIG9':'S6' },
+	        'S11': { 'P':'S12'},
+	        'S12': { 'S':'S8'}
+     	      } 
 
 # **Σημείο #2**: Αντικαταστήστε με το δικό σας λεξικό καταστάσεων αποδοχής
-accepts = { 's1':'INT_TOKEN',
-       		's3':'FLOAT_TOKEN'	
+accepts = { 'S8':'WIND_TOKEN'
      	  }
 
 
