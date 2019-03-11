@@ -27,7 +27,7 @@ def scan(text,transitions,accepts):
 	
 	# initial state
 	pos = 0
-	state = 's0'
+	state = 'S0'
 	# memory for last seen accepting states
 	last_token = None
 	last_pos = None
